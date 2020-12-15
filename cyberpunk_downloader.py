@@ -4,6 +4,7 @@ import urllib
 import time
 from pathlib import Path
 import requests
+import datetime
 
 
 def start_download():
@@ -70,6 +71,7 @@ def download_one_installer(url: str):
     print('Downloading: ' + file_name)
     byte_counter = 0
     start_time = time.time()
+    download_start = start_time
     try:
         with open(path, 'wb') as f:
             for chunk in r.iter_content(chunk_size=8192):
@@ -86,7 +88,8 @@ def download_one_installer(url: str):
             os.remove(path)
         time.sleep(60)
         download_one_installer(url)
-    print(f'Download completed. Total File Size: {convert_size(byte_counter)}')
+    total_download_time = time.time() - download_start
+    print(f'Download completed. Total File Size: {convert_size(byte_counter)}. Total download time: {str(datetime.timedelta(seconds=total_download_time))}')
 
 
 def get_file_name(url):
