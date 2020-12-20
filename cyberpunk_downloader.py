@@ -1,12 +1,11 @@
 import math
 import os
+import threading
 import urllib
 import time
 from pathlib import Path
 import requests
 import datetime
-
-from future.backports.test.ssl_servers import threading
 
 
 def start_download():
