@@ -19,7 +19,7 @@ def start_download():
         Path(path).mkdir(parents=True, exist_ok=True)
         files_in_directory = os.listdir(path)
         print('Start downloading Game files')
-        #download_all_files(url=url, installer_base=installer_base, gog_al_cookie=gog_al_cookie, thread_amount=thread_amount, files_in_directory=files_in_directory, path=path)  # Download Game Files
+        download_all_files(url=url, installer_base=installer_base, gog_al_cookie=gog_al_cookie, thread_amount=thread_amount, files_in_directory=files_in_directory, path=path)  # Download Game Files
         print('All Game Installer Downloaded')
         print('Start downloading Patch files')
         download_all_files(url=url, installer_base=patch_base, gog_al_cookie=gog_al_cookie, thread_amount=thread_amount, files_in_directory=files_in_directory, path=path)  # Download Patch Files
